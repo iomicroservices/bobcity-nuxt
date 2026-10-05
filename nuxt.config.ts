@@ -99,7 +99,7 @@ export default defineNuxtConfig({
           NUXT_CONTACT_FROM_EMAIL: 'hello@mail.bobcity.co.uk',
           NUXT_CONTACT_TO_EMAIL: 'hello@bobcity.co.uk',
           NUXT_PUBLIC_TURNSTILE_SITE_KEY: '0x4AAAAAAFOufi2Vo-qAjb5W',
-          NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID: 'Iv23liw7bAsVsobjqSwb'
+          STUDIO_GITHUB_CLIENT_ID: 'Iv23liw7bAsVsobjqSwb'
         },
         routes: [
           {

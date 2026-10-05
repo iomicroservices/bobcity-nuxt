@@ -58,8 +58,8 @@ npm run db:migrate:remote
    - `NUXT_TURNSTILE_SECRET_KEY`
    - `NUXT_CONTACT_TO_EMAIL`
    - `NUXT_CONTACT_FROM_EMAIL`
-   - `NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID`
-   - `NUXT_STUDIO_AUTH_GITHUB_CLIENT_SECRET`
+   - `STUDIO_GITHUB_CLIENT_ID`
+   - `STUDIO_GITHUB_CLIENT_SECRET`
 6. Update `studio.repository.owner` in `nuxt.config.ts`
 7. Deploy:
 
