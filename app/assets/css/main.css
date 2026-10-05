@@ -1,0 +1,61 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@theme static {
+  --font-sans: 'DM Sans', sans-serif;
+  --font-display: 'Bricolage Grotesque', sans-serif;
+
+  --color-amber-50: #fffbeb;
+  --color-amber-100: #fef3c7;
+  --color-amber-200: #fde68a;
+  --color-amber-300: #fcd34d;
+  --color-amber-400: #fbbf24;
+  --color-amber-500: #f59e0b;
+  --color-amber-600: #d97706;
+  --color-amber-700: #b45309;
+  --color-amber-800: #92400e;
+  --color-amber-900: #78350f;
+  --color-amber-950: #451a03;
+
+  --color-steel-50: #f4f7fb;
+  --color-steel-100: #e8eef6;
+  --color-steel-200: #cbd8e8;
+  --color-steel-300: #a3b8d2;
+  --color-steel-400: #7494b7;
+  --color-steel-500: #54769c;
+  --color-steel-600: #415e81;
+  --color-steel-700: #364c69;
+  --color-steel-800: #2f4158;
+  --color-steel-900: #2a384b;
+  --color-steel-950: #1b2433;
+}
+
+:root {
+  --bob-navy: #1b2433;
+  --bob-steel: #415e81;
+  --bob-amber: #d97706;
+  --bob-sand: #f3efe6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--ui-primary) 18%, transparent), transparent 60%),
+    radial-gradient(900px 500px at 100% 0%, color-mix(in oklab, var(--bob-steel) 16%, transparent), transparent 55%),
+    var(--ui-bg);
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.bob-section {
+  @apply py-16 sm:py-24;
+}
+
+.bob-container {
+  @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}

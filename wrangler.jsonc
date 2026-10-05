@@ -1,0 +1,24 @@
+{
+  "name": "bobcity",
+  "compatibility_date": "2025-05-15",
+  "compatibility_flags": ["nodejs_compat"],
+  "main": "./.output/server/index.mjs",
+  "assets": {
+    "directory": "./.output/public"
+  },
+  "observability": {
+    "enabled": true
+  },
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "bobcity",
+      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
+    }
+  ],
+  "send_email": [
+    {
+      "name": "EMAIL"
+    }
+  ]
+}

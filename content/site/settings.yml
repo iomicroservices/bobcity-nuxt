@@ -1,0 +1,28 @@
+name: Bob City
+tagline: Reliable property maintenance across handyman, painting, and removals.
+phone: "07000 000000"
+email: hello@bobcity.co.uk
+address: United Kingdom
+serviceAreaSummary: Serving homes and businesses across Greater London and surrounding areas.
+social:
+  facebook: https://facebook.com
+  instagram: https://instagram.com
+  whatsapp: https://wa.me/447000000000
+nav:
+  - label: Services
+    to: /services
+  - label: Areas
+    to: /areas
+  - label: Gallery
+    to: /gallery
+  - label: Blog
+    to: /blog
+  - label: FAQ
+    to: /faq
+  - label: About
+    to: /about
+  - label: Contact
+    to: /contact
+cta:
+  label: Get a free quote
+  to: /contact
