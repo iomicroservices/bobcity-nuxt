@@ -109,7 +109,7 @@ export default defineEventHandler(async (event) => {
   }
 
   const toOwner = String(config.contactToEmail || 'hello@bobcity.co.uk')
-  const from = String(config.contactFromEmail || 'quotes@bobcity.co.uk')
+  const from = String(config.contactFromEmail || 'hello@bobcity.co.uk')
   const serviceLabel = service || 'General enquiry'
 
   const ownerHtml = `

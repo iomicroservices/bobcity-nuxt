@@ -9,16 +9,25 @@
   "observability": {
     "enabled": true
   },
-  "d1_databases": [
-    {
-      "binding": "DB",
-      "database_name": "bobcity",
-      "database_id": "REPLACE_WITH_D1_DATABASE_ID"
-    }
-  ],
   "send_email": [
     {
       "name": "EMAIL"
+    }
+  ],
+  "vars": {
+    "NUXT_CONTACT_FROM_EMAIL": "hello@mail.bobcity.co.uk",
+    "NUXT_CONTACT_TO_EMAIL": "hello@bobcity.co.uk",
+    "NUXT_PUBLIC_TURNSTILE_SITE_KEY": "0x4AAAAAAFOufi2Vo-qAjb5W",
+    "NUXT_STUDIO_AUTH_GITHUB_CLIENT_ID": "Iv23liw7bAsVsobjqSwb"
+  },
+  "routes": [
+    {
+      "pattern": "bobcity.co.uk",
+      "custom_domain": true
+    },
+    {
+      "pattern": "www.bobcity.co.uk",
+      "custom_domain": true
     }
   ]
 }
