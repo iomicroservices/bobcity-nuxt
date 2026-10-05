@@ -53,7 +53,7 @@ export default defineNuxtConfig({
   studio: {
     repository: {
       provider: 'github',
-      owner: 'OWNER',
+      owner: 'iomicroservices',
       repo: 'bobcity-nuxt',
       branch: 'main'
     },
