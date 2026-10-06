@@ -15,6 +15,19 @@ export default defineNuxtConfig({
 
   css: ['~/assets/css/main.css'],
 
+  components: [
+    {
+      path: '~/components/content',
+      pathPrefix: false,
+      global: true
+    },
+    {
+      path: '~/components',
+      // Keep default app components; content/ is registered above for Studio/MDC
+      ignore: ['**/content/**']
+    }
+  ],
+
   app: {
     head: {
       htmlAttrs: { lang: 'en-GB' },

@@ -21,32 +21,46 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="Property maintenance"
+    <UPageHero
+      :headline="'Property maintenance'"
       :title="page?.headline || 'Property maintenance done properly'"
       :description="page?.description || site?.tagline"
-      :image="page?.heroImage"
-      :primary-label="site?.cta?.label || 'Get a free quote'"
-      :primary-to="site?.cta?.to || '/contact'"
-      secondary-label="View services"
-      secondary-to="/services"
-    />
+      orientation="horizontal"
+      :links="[
+        {
+          label: site?.cta?.label || 'Get a free quote',
+          to: site?.cta?.to || '/contact',
+          trailingIcon: 'i-lucide-arrow-right',
+          size: 'xl'
+        },
+        {
+          label: 'View services',
+          to: '/services',
+          color: 'neutral',
+          variant: 'outline',
+          size: 'xl'
+        }
+      ]"
+    >
+      <div
+        v-if="page?.heroImage"
+        class="min-w-0 w-full"
+      >
+        <img
+          :src="page.heroImage"
+          :alt="page?.headline || 'Bob City'"
+          class="h-auto w-full rounded-xl border border-default object-cover shadow-sm lg:aspect-4/3"
+        >
+      </div>
+    </UPageHero>
 
-    <section class="bob-section">
-      <div class="bob-container">
-        <div class="max-w-2xl">
-          <p class="text-sm font-medium tracking-[0.16em] text-primary uppercase">
-            What we do
-          </p>
-          <h2 class="font-display mt-3 text-3xl font-semibold text-highlighted sm:text-4xl">
-            One team for repairs, refreshes, and moves
-          </h2>
-          <p class="mt-3 text-muted">
-            Start with the service you need — or combine them into one booking.
-          </p>
-        </div>
-
-        <div class="mt-10 grid gap-2 md:grid-cols-3 md:gap-8">
+    <UPageSection
+      headline="What we do"
+      title="One team for repairs, refreshes, and moves"
+      description="Start with the service you need — or combine them into one booking."
+    >
+      <template #body>
+        <UPageGrid>
           <SectionsServiceCard
             v-for="service in services"
             :key="service.path"
@@ -55,34 +69,35 @@ useSeoMeta({
             :icon="service.icon"
             :to="service.path"
           />
-        </div>
-      </div>
-    </section>
+        </UPageGrid>
+      </template>
+    </UPageSection>
 
-    <section class="bob-section border-y border-default bg-elevated/40">
-      <div class="bob-container grid gap-10 lg:grid-cols-2 lg:items-start">
-        <div>
-          <p class="text-sm font-medium tracking-[0.16em] text-primary uppercase">
-            Why Bob City
-          </p>
-          <h2 class="font-display mt-3 text-3xl font-semibold text-highlighted sm:text-4xl">
-            Clear communication. Tidy workmanship.
-          </h2>
-          <ContentRenderer
-            v-if="page"
-            :value="page"
-            class="prose prose-neutral dark:prose-invert mt-4 max-w-none"
-          />
-        </div>
+    <UContainer class="pb-8">
+      <ContentRenderer
+        v-if="page"
+        :value="page"
+      />
+    </UContainer>
+
+    <UPageSection
+      headline="FAQ"
+      title="Common questions"
+      description="Straight answers about quotes, coverage, and how we work."
+      orientation="horizontal"
+    >
+      <template #body>
         <SectionsFaqList :items="faqs || []" />
-      </div>
-    </section>
+      </template>
+    </UPageSection>
 
     <SectionsCtaBand
       title="Ready for a free quote?"
       description="Tell us about the job and we will come back with clear next steps."
       :primary-label="site?.cta?.label || 'Get a free quote'"
       :primary-to="site?.cta?.to || '/contact'"
+      secondary-label="Browse services"
+      secondary-to="/services"
     />
   </div>
 </template>

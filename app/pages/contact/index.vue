@@ -10,44 +10,79 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="Contact"
+    <UPageHero
+      headline="Contact"
       title="Get a free quote"
       description="Tell us what you need. We will confirm availability and next steps."
     />
 
-    <section class="bob-section">
-      <div class="bob-container grid gap-12 lg:grid-cols-[1.1fr_0.9fr]">
-        <ContactForm :services="services || []" />
-
-        <aside class="space-y-6">
-          <div>
+    <UContainer class="pb-16 sm:pb-24">
+      <div class="grid gap-8 lg:grid-cols-[1.1fr_0.9fr]">
+        <UCard variant="subtle">
+          <template #header>
             <h2 class="font-display text-xl font-semibold text-highlighted">
-              Prefer to talk?
+              Request a quote
             </h2>
-            <ul class="mt-4 space-y-3 text-muted">
-              <li v-if="site?.phone">
+          </template>
+          <ContactForm :services="services || []" />
+        </UCard>
+
+        <div class="space-y-6">
+          <UCard variant="subtle">
+            <template #header>
+              <h2 class="font-display text-xl font-semibold text-highlighted">
+                Prefer to talk?
+              </h2>
+            </template>
+            <ul class="space-y-3 text-muted">
+              <li
+                v-if="site?.phone"
+                class="flex items-center gap-3"
+              >
+                <UIcon
+                  name="i-lucide-phone"
+                  class="size-4 text-primary"
+                />
                 <a
                   :href="`tel:${site.phone.replace(/\s/g, '')}`"
                   class="hover:text-primary"
                 >{{ site.phone }}</a>
               </li>
-              <li v-if="site?.email">
+              <li
+                v-if="site?.email"
+                class="flex items-center gap-3"
+              >
+                <UIcon
+                  name="i-lucide-mail"
+                  class="size-4 text-primary"
+                />
                 <a
                   :href="`mailto:${site.email}`"
                   class="hover:text-primary"
                 >{{ site.email }}</a>
               </li>
-              <li v-if="site?.serviceAreaSummary">
-                {{ site.serviceAreaSummary }}
+              <li
+                v-if="site?.serviceAreaSummary"
+                class="flex items-start gap-3"
+              >
+                <UIcon
+                  name="i-lucide-map-pin"
+                  class="mt-0.5 size-4 text-primary"
+                />
+                <span>{{ site.serviceAreaSummary }}</span>
               </li>
             </ul>
-          </div>
-          <p class="text-sm text-dimmed">
-            Protected by Cloudflare Turnstile. Your details are stored securely and used only to respond to your enquiry.
-          </p>
-        </aside>
+          </UCard>
+
+          <UAlert
+            icon="i-lucide-shield-check"
+            color="neutral"
+            variant="subtle"
+            title="Your details stay private"
+            description="Protected by Cloudflare Turnstile. We only use your information to respond to your enquiry."
+          />
+        </div>
       </div>
-    </section>
+    </UContainer>
   </div>
 </template>

@@ -11,16 +11,16 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="Gallery"
+    <UPageHero
+      headline="Gallery"
       title="Recent work"
       description="A growing portfolio of repairs, refreshes, and moves."
     />
 
-    <section class="bob-section">
-      <div class="bob-container">
+    <UPageSection>
+      <template #body>
         <SectionsGalleryGrid :items="items || []" />
-      </div>
-    </section>
+      </template>
+    </UPageSection>
   </div>
 </template>

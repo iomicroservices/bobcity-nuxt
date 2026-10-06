@@ -27,19 +27,30 @@ useSeoMeta({
 
 <template>
   <div v-if="service">
-    <SectionsHeroBanner
-      eyebrow="Service"
+    <UPageHero
+      headline="Service"
       :title="service.title"
       :description="service.summary"
-      :image="service.coverImage"
-      primary-label="Request a quote"
-      primary-to="/contact"
-      secondary-label="All services"
-      secondary-to="/services"
-    />
+      orientation="horizontal"
+      :links="[
+        { label: 'Request a quote', to: '/contact', trailingIcon: 'i-lucide-arrow-right', size: 'xl' },
+        { label: 'All services', to: '/services', color: 'neutral', variant: 'outline', size: 'xl' }
+      ]"
+    >
+      <div
+        v-if="service.coverImage"
+        class="min-w-0 w-full"
+      >
+        <img
+          :src="service.coverImage"
+          :alt="service.title"
+          class="h-auto w-full rounded-xl border border-default object-cover shadow-sm lg:aspect-4/3"
+        >
+      </div>
+    </UPageHero>
 
-    <section class="bob-section">
-      <div class="bob-container grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
+    <UContainer class="pb-16 sm:pb-24">
+      <div class="grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
         <article>
           <ContentRenderer
             :value="service"
@@ -47,12 +58,17 @@ useSeoMeta({
           />
         </article>
 
-        <aside class="space-y-8">
-          <div v-if="service.highlights?.length">
-            <h2 class="font-display text-xl font-semibold text-highlighted">
-              What's included
-            </h2>
-            <ul class="mt-4 space-y-3">
+        <aside class="space-y-6">
+          <UCard
+            v-if="service.highlights?.length"
+            variant="subtle"
+          >
+            <template #header>
+              <h2 class="font-display text-lg font-semibold text-highlighted">
+                What's included
+              </h2>
+            </template>
+            <ul class="space-y-3">
               <li
                 v-for="item in service.highlights"
                 :key="item"
@@ -65,17 +81,22 @@ useSeoMeta({
                 <span>{{ item }}</span>
               </li>
             </ul>
-          </div>
+          </UCard>
 
-          <div v-if="relatedFaqs?.length">
-            <h2 class="font-display mb-4 text-xl font-semibold text-highlighted">
-              Related FAQs
-            </h2>
+          <UCard
+            v-if="relatedFaqs?.length"
+            variant="subtle"
+          >
+            <template #header>
+              <h2 class="font-display text-lg font-semibold text-highlighted">
+                Related FAQs
+              </h2>
+            </template>
             <SectionsFaqList :items="relatedFaqs" />
-          </div>
+          </UCard>
         </aside>
       </div>
-    </section>
+    </UContainer>
 
     <SectionsCtaBand
       title="Need this service?"

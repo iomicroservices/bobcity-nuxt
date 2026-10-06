@@ -11,28 +11,27 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="Areas"
+    <UPageHero
+      headline="Areas"
       title="Where we work"
       description="Local coverage with room to grow — each area is its own content page."
     />
 
-    <section class="bob-section">
-      <div class="bob-container grid gap-6 sm:grid-cols-2">
-        <NuxtLink
-          v-for="area in areas"
-          :key="area.path"
-          :to="area.path"
-          class="block border-b border-default py-6 hover:border-primary"
-        >
-          <h2 class="font-display text-2xl font-semibold text-highlighted">
-            {{ area.title }}
-          </h2>
-          <p class="mt-2 text-muted">
-            {{ area.summary }}
-          </p>
-        </NuxtLink>
-      </div>
-    </section>
+    <UPageSection>
+      <template #body>
+        <UPageGrid class="lg:grid-cols-2">
+          <UPageCard
+            v-for="area in areas"
+            :key="area.path"
+            :title="area.title"
+            :description="area.summary"
+            :to="area.path"
+            icon="i-lucide-map-pin"
+            variant="subtle"
+            spotlight
+          />
+        </UPageGrid>
+      </template>
+    </UPageSection>
   </div>
 </template>

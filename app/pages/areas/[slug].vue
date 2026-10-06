@@ -19,22 +19,27 @@ useSeoMeta({
 
 <template>
   <div v-if="area">
-    <SectionsHeroBanner
-      eyebrow="Service area"
+    <UPageHero
+      headline="Service area"
       :title="area.title"
       :description="area.summary"
-      :image="area.coverImage"
-      primary-label="Request a quote"
-      primary-to="/contact"
+      :links="[
+        { label: 'Request a quote', to: '/contact', trailingIcon: 'i-lucide-arrow-right', size: 'xl' }
+      ]"
     />
 
-    <section class="bob-section">
-      <div class="bob-container max-w-3xl">
-        <ContentRenderer
-          :value="area"
-          class="prose prose-neutral dark:prose-invert max-w-none"
-        />
-      </div>
-    </section>
+    <UContainer class="pb-16 sm:pb-24">
+      <ContentRenderer
+        :value="area"
+        class="prose prose-neutral dark:prose-invert max-w-none mx-auto max-w-3xl"
+      />
+    </UContainer>
+
+    <SectionsCtaBand
+      title="Need help in this area?"
+      description="Tell us about the job and we will confirm availability."
+      primary-label="Get a free quote"
+      primary-to="/contact"
+    />
   </div>
 </template>

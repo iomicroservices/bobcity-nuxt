@@ -10,25 +10,28 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="Services"
+    <UPageHero
+      headline="Services"
       title="Practical help for homes and workplaces"
       description="Three core services today — built so we can add more without changing the site structure."
-      :primary-label="site?.cta?.label"
-      :primary-to="site?.cta?.to"
+      :links="site?.cta
+        ? [{ label: site.cta.label, to: site.cta.to, trailingIcon: 'i-lucide-arrow-right', size: 'xl' }]
+        : []"
     />
 
-    <section class="bob-section">
-      <div class="bob-container max-w-4xl">
-        <SectionsServiceCard
-          v-for="service in services"
-          :key="service.path"
-          :title="service.title"
-          :summary="service.summary"
-          :icon="service.icon"
-          :to="service.path"
-        />
-      </div>
-    </section>
+    <UPageSection>
+      <template #body>
+        <UPageGrid>
+          <SectionsServiceCard
+            v-for="service in services"
+            :key="service.path"
+            :title="service.title"
+            :summary="service.summary"
+            :icon="service.icon"
+            :to="service.path"
+          />
+        </UPageGrid>
+      </template>
+    </UPageSection>
   </div>
 </template>

@@ -13,6 +13,6 @@ const items = computed(() =>
   <UNavigationMenu
     :items="items"
     content-orientation="vertical"
-    class="hidden lg:flex"
+    class="hidden xl:flex"
   />
 </template>

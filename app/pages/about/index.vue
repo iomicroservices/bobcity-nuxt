@@ -11,20 +11,17 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="About"
+    <UPageHero
+      headline="About"
       :title="page?.headline || 'About Bob City'"
       :description="page?.description"
     />
 
-    <section class="bob-section">
-      <div class="bob-container max-w-3xl">
-        <ContentRenderer
-          v-if="page"
-          :value="page"
-          class="prose prose-neutral dark:prose-invert max-w-none"
-        />
-      </div>
-    </section>
+    <UContainer class="pb-16 sm:pb-24">
+      <ContentRenderer
+        v-if="page"
+        :value="page"
+      />
+    </UContainer>
   </div>
 </template>

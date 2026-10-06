@@ -19,15 +19,14 @@ useSeoMeta({
 
 <template>
   <div v-if="post">
-    <SectionsHeroBanner
-      eyebrow="Blog"
+    <UPageHero
+      headline="Blog"
       :title="post.title"
       :description="post.description"
-      :image="post.coverImage"
     />
 
-    <section class="bob-section">
-      <div class="bob-container max-w-3xl">
+    <UContainer class="pb-16 sm:pb-24">
+      <article class="mx-auto max-w-3xl">
         <p class="mb-8 text-sm text-dimmed">
           {{ post.date }} · {{ post.author }}
         </p>
@@ -35,7 +34,7 @@ useSeoMeta({
           :value="post"
           class="prose prose-neutral dark:prose-invert max-w-none"
         />
-      </div>
-    </section>
+      </article>
+    </UContainer>
   </div>
 </template>

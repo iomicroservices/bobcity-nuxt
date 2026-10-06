@@ -30,21 +30,14 @@
   --color-steel-950: #1b2433;
 }
 
-:root {
-  --bob-navy: #1b2433;
-  --bob-steel: #415e81;
-  --bob-amber: #d97706;
-  --bob-sand: #f3efe6;
-}
-
 html {
   scroll-behavior: smooth;
 }
 
 body {
   background:
-    radial-gradient(1200px 600px at 10% -10%, color-mix(in oklab, var(--ui-primary) 18%, transparent), transparent 60%),
-    radial-gradient(900px 500px at 100% 0%, color-mix(in oklab, var(--bob-steel) 16%, transparent), transparent 55%),
+    radial-gradient(900px 480px at 0% -10%, color-mix(in oklab, var(--ui-primary) 14%, transparent), transparent 55%),
+    radial-gradient(700px 420px at 100% 0%, color-mix(in oklab, var(--color-steel-600) 12%, transparent), transparent 50%),
     var(--ui-bg);
 }
 
@@ -58,4 +51,8 @@ body {
 
 .bob-container {
   @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+}
+
+.prose :where(h2, h3) {
+  font-family: var(--font-display);
 }

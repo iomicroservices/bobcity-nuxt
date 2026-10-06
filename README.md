@@ -16,6 +16,31 @@ cp .env.example .env
 npm run dev
 ```
 
+## Studio content components
+
+Insert these in Markdown via Studio (`/`) or MDC syntax. They wrap Nuxt UI page primitives:
+
+| Component | MDC tag | Purpose |
+| --- | --- | --- |
+| `Hero` | `::hero` | Page hero with CTAs |
+| `PageHeader` | `::page-header` | Inner page title |
+| `Section` | `::section` | Section with headline/title |
+| `Card` / `CardGrid` | `::card` / `::card-grid` | Card layouts |
+| `Feature` | `::feature` | Icon + title + text |
+| `Cta` | `::cta` | Call-to-action band |
+| `Alert` | `::alert` | Callout |
+
+Example:
+
+```md
+::card{icon="i-lucide-wrench" to="/services/handyman"}
+#title
+Handyman
+#description
+Reliable repairs and odd jobs.
+::
+```
+
 ## Content
 
 Editable content lives in `content/`:

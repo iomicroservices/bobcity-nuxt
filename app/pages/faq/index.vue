@@ -11,17 +11,19 @@ useSeoMeta({
 
 <template>
   <div>
-    <SectionsHeroBanner
-      eyebrow="FAQ"
+    <UPageHero
+      headline="FAQ"
       title="Questions, answered"
       description="Straight answers about how we work, quote, and cover jobs."
     />
 
-    <section class="bob-section">
-      <div class="bob-container max-w-3xl">
-        <SectionsFaqList :items="faqs || []" />
-      </div>
-    </section>
+    <UPageSection>
+      <template #body>
+        <div class="mx-auto max-w-3xl">
+          <SectionsFaqList :items="faqs || []" />
+        </div>
+      </template>
+    </UPageSection>
 
     <SectionsCtaBand
       title="Still unsure?"

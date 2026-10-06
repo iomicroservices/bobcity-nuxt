@@ -15,6 +15,27 @@ const mobileItems = computed(() =>
     to: item.to
   }))
 )
+
+const footerColumns = computed(() => [
+  {
+    label: 'Explore',
+    children: (site.value?.nav ?? []).map(item => ({
+      label: item.label,
+      to: item.to
+    }))
+  },
+  {
+    label: 'Contact',
+    children: [
+      ...(site.value?.phone
+        ? [{ label: site.value.phone, to: `tel:${site.value.phone.replace(/\s/g, '')}` }]
+        : []),
+      ...(site.value?.email
+        ? [{ label: site.value.email, to: `mailto:${site.value.email}` }]
+        : [])
+    ]
+  }
+])
 </script>
 
 <template>
@@ -34,6 +55,15 @@ const mobileItems = computed(() =>
       </template>
 
       <template #right>
+        <UButton
+          v-if="site?.phone"
+          :to="`tel:${site.phone.replace(/\s/g, '')}`"
+          color="neutral"
+          variant="ghost"
+          icon="i-lucide-phone"
+          class="hidden md:inline-flex"
+          size="md"
+        />
         <UButton
           v-if="site?.cta"
           :to="site.cta.to"
@@ -66,61 +96,39 @@ const mobileItems = computed(() =>
       <NuxtPage :key="route.path" />
     </UMain>
 
-    <footer class="border-t border-default">
-      <div class="bob-container py-12">
-        <div class="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-          <div>
-            <AppLogo />
-            <p class="mt-3 max-w-md text-sm text-muted">
-              {{ site?.tagline }}
-            </p>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-highlighted">
-              Explore
-            </p>
-            <ul class="mt-3 space-y-2 text-sm">
-              <li
-                v-for="item in site?.nav"
-                :key="item.to"
-              >
-                <NuxtLink
-                  :to="item.to"
-                  class="text-muted hover:text-primary"
+    <UFooter>
+      <template #top>
+        <UContainer>
+          <UFooterColumns :columns="footerColumns">
+            <template #left>
+              <div class="min-w-0 max-w-sm">
+                <AppLogo />
+                <p class="mt-3 text-sm text-pretty text-muted">
+                  {{ site?.tagline }}
+                </p>
+                <p
+                  v-if="site?.serviceAreaSummary"
+                  class="mt-2 text-sm text-pretty text-muted"
                 >
-                  {{ item.label }}
-                </NuxtLink>
-              </li>
-            </ul>
-          </div>
-          <div>
-            <p class="text-sm font-semibold text-highlighted">
-              Contact
-            </p>
-            <ul class="mt-3 space-y-2 text-sm text-muted">
-              <li v-if="site?.phone">
-                <a
-                  :href="`tel:${site.phone.replace(/\s/g, '')}`"
-                  class="hover:text-primary"
-                >{{ site.phone }}</a>
-              </li>
-              <li v-if="site?.email">
-                <a
-                  :href="`mailto:${site.email}`"
-                  class="hover:text-primary"
-                >{{ site.email }}</a>
-              </li>
-              <li v-if="site?.serviceAreaSummary">
-                {{ site.serviceAreaSummary }}
-              </li>
-            </ul>
-          </div>
-        </div>
-        <div class="mt-10 flex flex-col gap-2 border-t border-default pt-6 text-xs text-dimmed sm:flex-row sm:items-center sm:justify-between">
-          <p>© {{ new Date().getFullYear() }} Bob City. All rights reserved.</p>
-          <p>bobcity.co.uk</p>
-        </div>
-      </div>
-    </footer>
+                  {{ site.serviceAreaSummary }}
+                </p>
+              </div>
+            </template>
+          </UFooterColumns>
+        </UContainer>
+      </template>
+
+      <template #left>
+        <p class="text-sm text-muted">
+          © {{ new Date().getFullYear() }} Bob City. All rights reserved.
+        </p>
+      </template>
+
+      <template #right>
+        <p class="text-sm text-muted">
+          bobcity.co.uk
+        </p>
+      </template>
+    </UFooter>
   </UApp>
 </template>
