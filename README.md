@@ -6,7 +6,11 @@ Property maintenance website for [bobcity.co.uk](https://bobcity.co.uk) — hand
 
 - Nuxt 4 + Nuxt UI
 - Nuxt Content + Nuxt Studio (editable content)
+- Nuxt Image (`provider: 'none'` for now; Cloudflare Transformations later)
+- Nuxt SEO (sitemap, robots, schema.org, OG image)
 - Cloudflare Workers + D1 + Email Sending + Turnstile
+
+SEO endpoints after deploy / in preview: `/robots.txt`, `/sitemap.xml`.
 
 ## Setup
 

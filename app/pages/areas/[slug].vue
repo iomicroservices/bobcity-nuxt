@@ -29,10 +29,9 @@ useSeoMeta({
     />
 
     <UContainer class="pb-16 sm:pb-24">
-      <ContentRenderer
-        :value="area"
-        class="prose prose-neutral dark:prose-invert max-w-none mx-auto max-w-3xl"
-      />
+      <div class="mx-auto max-w-3xl">
+        <ContentRenderer :value="area" />
+      </div>
     </UContainer>
 
     <SectionsCtaBand

@@ -22,12 +22,12 @@ defineProps<{
     >
       <template #header>
         <div class="aspect-4/3 min-w-0 overflow-hidden rounded-lg bg-elevated">
-          <img
+          <NuxtImg
             :src="item.image"
             :alt="item.title"
             class="size-full object-cover transition duration-500 hover:scale-[1.03]"
             loading="lazy"
-          >
+          />
         </div>
       </template>
       <template

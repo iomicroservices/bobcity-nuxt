@@ -162,7 +162,7 @@ async function onSubmit() {
       <!-- Honeypot -->
       <div
         aria-hidden="true"
-        class="pointer-events-none absolute -left-[9999px] opacity-0"
+        class="pointer-events-none absolute left-[-9999px] opacity-0"
       >
         <label>
           Website

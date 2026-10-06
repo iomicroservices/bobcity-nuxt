@@ -30,10 +30,7 @@ useSeoMeta({
         <p class="mb-8 text-sm text-dimmed">
           {{ post.date }} · {{ post.author }}
         </p>
-        <ContentRenderer
-          :value="post"
-          class="prose prose-neutral dark:prose-invert max-w-none"
-        />
+        <ContentRenderer :value="post" />
       </article>
     </UContainer>
   </div>

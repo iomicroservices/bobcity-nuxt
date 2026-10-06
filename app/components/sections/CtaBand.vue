@@ -10,7 +10,7 @@ defineProps<{
 </script>
 
 <template>
-  <div class="bob-section pt-0">
+  <div class="py-16 pt-0 sm:py-24 sm:pt-0">
     <UPageCTA
       :title="title"
       :description="description"

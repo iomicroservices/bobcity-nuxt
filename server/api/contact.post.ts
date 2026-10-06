@@ -1,5 +1,6 @@
 import { z } from 'zod'
 import type { H3Event } from 'h3'
+import type { D1Database } from '@cloudflare/workers-types'
 
 const bodySchema = z.object({
   name: z.string().trim().min(2).max(120),
@@ -164,5 +165,5 @@ function escapeHtml(value: string) {
     .replaceAll('<', '&lt;')
     .replaceAll('>', '&gt;')
     .replaceAll('"', '&quot;')
-    .replaceAll("'", '&#39;')
+    .replaceAll('\'', '&#39;')
 }

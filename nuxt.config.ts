@@ -6,14 +6,10 @@ export default defineNuxtConfig({
     '@nuxt/content',
     'nuxt-studio',
     '@nuxtjs/turnstile',
-    'nitro-cloudflare-dev'
+    'nitro-cloudflare-dev',
+    '@nuxt/image',
+    '@nuxtjs/seo'
   ],
-
-  devtools: {
-    enabled: true
-  },
-
-  css: ['~/assets/css/main.css'],
 
   components: [
     {
@@ -28,6 +24,10 @@ export default defineNuxtConfig({
     }
   ],
 
+  devtools: {
+    enabled: true
+  },
+
   app: {
     head: {
       htmlAttrs: { lang: 'en-GB' },
@@ -35,6 +35,15 @@ export default defineNuxtConfig({
         { rel: 'icon', href: '/favicon.ico' }
       ]
     }
+  },
+
+  css: ['~/assets/css/main.css'],
+
+  site: {
+    url: 'https://bobcity.co.uk',
+    name: 'Bob City',
+    description: 'Reliable property maintenance across handyman, painting, and removals.',
+    defaultLocale: 'en-GB'
   },
 
   runtimeConfig: {
@@ -52,32 +61,6 @@ export default defineNuxtConfig({
     }
   },
 
-  turnstile: {
-    siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
-    addValidateEndpoint: false
-  },
-
-  fonts: {
-    families: [
-      { name: 'DM Sans', provider: 'google' },
-      { name: 'Bricolage Grotesque', provider: 'google' }
-    ]
-  },
-
-  studio: {
-    repository: {
-      provider: 'github',
-      owner: 'iomicroservices',
-      repo: 'bobcity-nuxt',
-      branch: 'main'
-    },
-    git: {
-      commit: {
-        messagePrefix: 'content: '
-      }
-    }
-  },
-
   routeRules: {
     '/': { prerender: true },
     '/services': { prerender: true },
@@ -88,6 +71,8 @@ export default defineNuxtConfig({
     '/blog': { prerender: true },
     '/contact': { prerender: true }
   },
+
+  compatibilityDate: '2025-05-15',
 
   nitro: {
     preset: 'cloudflare_module',
@@ -132,8 +117,6 @@ export default defineNuxtConfig({
     }
   },
 
-  compatibilityDate: '2025-05-15',
-
   eslint: {
     config: {
       stylistic: {
@@ -141,5 +124,36 @@ export default defineNuxtConfig({
         braceStyle: '1tbs'
       }
     }
+  },
+
+  fonts: {
+    families: [
+      { name: 'DM Sans', provider: 'google' },
+      { name: 'Bricolage Grotesque', provider: 'google' }
+    ]
+  },
+
+  // No Cloudflare Transformations yet — NuxtImg works as a smart <img> wrapper
+  image: {
+    provider: 'none'
+  },
+
+  studio: {
+    repository: {
+      provider: 'github',
+      owner: 'iomicroservices',
+      repo: 'bobcity-nuxt',
+      branch: 'main'
+    },
+    git: {
+      commit: {
+        messagePrefix: 'content: '
+      }
+    }
+  },
+
+  turnstile: {
+    siteKey: process.env.NUXT_PUBLIC_TURNSTILE_SITE_KEY,
+    addValidateEndpoint: false
   }
 })

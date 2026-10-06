@@ -46,11 +46,11 @@ useSeoMeta({
         v-if="page?.heroImage"
         class="min-w-0 w-full"
       >
-        <img
+        <NuxtImg
           :src="page.heroImage"
           :alt="page?.headline || 'Bob City'"
           class="h-auto w-full rounded-xl border border-default object-cover shadow-sm lg:aspect-4/3"
-        >
+        />
       </div>
     </UPageHero>
 

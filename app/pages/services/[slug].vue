@@ -41,21 +41,18 @@ useSeoMeta({
         v-if="service.coverImage"
         class="min-w-0 w-full"
       >
-        <img
+        <NuxtImg
           :src="service.coverImage"
           :alt="service.title"
           class="h-auto w-full rounded-xl border border-default object-cover shadow-sm lg:aspect-4/3"
-        >
+        />
       </div>
     </UPageHero>
 
     <UContainer class="pb-16 sm:pb-24">
       <div class="grid gap-12 lg:grid-cols-[1.4fr_0.8fr]">
         <article>
-          <ContentRenderer
-            :value="service"
-            class="prose prose-neutral dark:prose-invert max-w-none"
-          />
+          <ContentRenderer :value="service" />
         </article>
 
         <aside class="space-y-6">

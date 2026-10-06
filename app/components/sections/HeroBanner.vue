@@ -30,11 +30,11 @@ defineProps<{
       #default
     >
       <div class="hidden min-w-0 w-full lg:block">
-        <img
+        <NuxtImg
           :src="image"
           :alt="title"
           class="h-auto w-full rounded-xl border border-default object-cover shadow-sm lg:aspect-4/3"
-        >
+        />
       </div>
     </template>
   </UPageHero>
